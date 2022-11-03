@@ -53,7 +53,7 @@ const getFinalProducts = () => (
 export const App: React.FC = () => {
   const [selectedUser, setSelectedUser] = useState(0);
   const [query, setQuery] = useState('');
-  const [productList, setProductList] = useState(null);
+  // const [productList, setProductList] = useState<FinalProduct[]>();
 
   const searchByQuery = (value: string) => {
     return value.toLowerCase().includes(query.toLowerCase());
@@ -66,13 +66,13 @@ export const App: React.FC = () => {
         : searchByQuery(product.name)
     ));
 
-  const handleFilterByCategory = (category: string) => {
-    const filteredByCategory = productList.filter(product => (
-      product.category !== null ? product.category.title === category : false
-    ));
+  // const handleFilterByCategory = (category: string) => {
+  //   const filteredByCategory = productList.filter(product => (
+  //     product.category !== null ? product.category.title === category : false
+  //   ));
 
-    setProductList(filteredByCategory);
-  };
+  //   setProductList(filteredByCategory);
+  // };
 
   return (
     <div className="section">
@@ -154,7 +154,7 @@ export const App: React.FC = () => {
                   data-cy="Category"
                   className="button mr-2 my-1"
                   href="#/"
-                  onClick={() => handleFilterByCategory(category.title)}
+                  // onClick={() => handleFilterByCategory(category.title)}
                 >
                   {category.title}
                 </a>
